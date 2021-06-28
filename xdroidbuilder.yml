@@ -1,10 +1,11 @@
-name: xdroidbuilder
-on: 
-  workflow_dispatch:
-defaults:
-  run:
-    shell: bash
-
+version: 2.1
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  compile:
+   docker:
+      - image: z4nyx/docker:latest
+   steps:
+      - run:
+          command: |
+           git config --global user.name "xyzuan"
+           git config --global user.email "xyzuan@webmail.umm.ac.id"
+           apt install neofetch && neofetch
