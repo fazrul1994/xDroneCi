@@ -14,4 +14,4 @@ steps:
      ZIPNAME:
        from_secret: ZIPNAME
    commands:
-      - apt install neofetch && neofetch && df -l
+      - apt update -y && apt upgrade -y && apt install neofetch -y && neofetch && df -l
