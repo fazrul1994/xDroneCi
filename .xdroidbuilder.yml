@@ -14,5 +14,4 @@ steps:
        - git config --global user.name "xyzuan"
        - git config --global user.email "xyzuan@webmail.umm.ac.id"
        - git clone --depth=1 https://github.com/xyz-prjkt/xbore_strmbreakr_lavender lavender
-       - wget https://github.com/xyz-prjkt/xbore_strmbreakr_lavender/raw/eleven-caf_eas/.circleci/build.sh
-       - bash build.sh
+       - bash xbore_lavender.sh
