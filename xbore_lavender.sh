@@ -3,12 +3,12 @@ echo "Downloading few Dependecies . . ."
 git clone --depth=1 https://github.com/kdrag0n/proton-clang proton
 
 # Main
-KERNEL_ROOTDIR=$(pwd)/lavender # IMPORTANT ! Fill with your kernel source root directory.
-DEVICE_DEFCONFIG=lavender-perf_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
+KERNEL_ROOTDIR=$(pwd)/poplar # IMPORTANT ! Fill with your kernel source root directory.
+DEVICE_DEFCONFIG=ignominiOus-poplaR_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
 CLANG_ROOTDIR=$(pwd)/proton # IMPORTANT! Put your clang directory here.
-export KBUILD_BUILD_USER=xyzuan # Change with your own name or else.
-export KBUILD_BUILD_HOST=xyzscape-clouddroneci # Change with your own hostname.
-IMAGE=$(pwd)/lavender/out/arch/arm64/boot/Image.gz-dtb
+export KBUILD_BUILD_USER=NoFace # Change with your own name or else.
+export KBUILD_BUILD_HOST=NoName-clouddroneci # Change with your own hostname.
+IMAGE=$(pwd)/poplar/out/arch/arm64/boot/Image.gz-dtb
 DATE=$(date +"%F-%S")
 START=$(date +"%s")
 
@@ -111,7 +111,7 @@ function finerr() {
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
-    zip -r9 xBoreUp.strmbreakr-lavender-${DATE}.zip *
+    zip -r9 ignominiOus-poplaR-${DATE}.zip *
     cd ..
 }
 check
