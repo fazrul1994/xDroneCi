@@ -14,21 +14,14 @@ chmod a+x $(pwd)/bin/repo
 
 # Sync Sources
 function sync() {
-
-curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
-        -d chat_id="${chat_id}" \
-        -d "disable_web_page_preview=true" \
-        -d "parse_mode=html" \
-        -d text="<b>xRomBuilder Started.</b>"
-
 mkdir xdroid
 cd $(pwd)/xdroid
 repo init -u https://github.com/xdroid-CAF/xdroid_manifest -b eleven
-repo sync
 }
 
 # Clone Device Stuff
 function clonedevicedep() {
+repo sync
 git clone https://github.com/xyz-prjkt/xdroid_device_lavender device/xiaomi/lavender --depth=1 -b eleven-caf
 git clone https://github.com/xyz-prjkt/xbore_strmbreakr_lavender kernel/xiaomi/lavender -b eleven-caf_eas
 git clone https://github.com/xyz-prjkt/hw_media hardware/qcom-caf/msm8998/media -b 11-LA.UM.9.6.2.r1-03600-89xx.0
