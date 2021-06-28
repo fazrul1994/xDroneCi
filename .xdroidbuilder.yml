@@ -10,7 +10,7 @@ steps:
      token:
        from_secret: TOKEN
    commands:
-       - apt install -y python3-pip libffi-dev python3-dev
+       - apt update -y && apt install -y python3-pip libffi-dev python3-dev
        - git config --global user.name "xyzuan"
        - git config --global user.email "xyzuan@webmail.umm.ac.id"
        - bash xdroid_lavender.sh
