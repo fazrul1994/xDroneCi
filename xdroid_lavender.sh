@@ -7,14 +7,11 @@ DATE=$(date +"%F-%S")
 START=$(date +"%s")
 
 # Installing some dependency
-sudo apt install openssh-server screen python3.8 git openjdk-8-jdk android-tools-adb bc bison \
+apt install -y openssh-server git openjdk-8-jdk android-tools-adb bc bison \
 build-essential curl flex g++-multilib gcc-multilib gnupg gperf imagemagick lib32ncurses-dev \
 lib32readline-dev lib32z1-dev  liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev \
 libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc yasm zip zlib1g-dev \
-libtinfo5 libncurses5
-
-# Debugging Dependency
-python3 ––version
+libtinfo5 libncurses5 python3-pip libffi-dev python3-dev
 
 mkdir $(pwd)/bin
 PATH=$(pwd)/bin:$PATH
@@ -28,7 +25,7 @@ curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
         -d chat_id="${chat_id}" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
-        -d text="<b>xRomBuilder<b/>jajal"
+        -d text="<b>xRomBuilder Started.<b/>"
 
 mkdir xdroid
 cd $(pwd)/xdroid
