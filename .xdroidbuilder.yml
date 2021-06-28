@@ -1,13 +1,17 @@
 kind: pipeline
 name : xDroidBuilder
 version: 2.1
-jobs:
-  compile:
-   docker:
-      - image: z4nyx/docker:latest
-   steps:
-      - run:
-          command: |
-           git config --global user.name "xyzuan"
-           git config --global user.email "xyzuan@webmail.umm.ac.id"
-           apt install neofetch && neofetch
+steps:
+ - name: test
+   image: starlight2834/ci_docker:latest
+   environment:
+     ZIP_RELEASE:
+       from_secret: ZIP_RELEASE
+     TOKEN:
+       from_secret: BOT_API_KEY
+     CHATID:
+       from_secret: CHAT_ID
+     ZIPNAME:
+       from_secret: ZIPNAME
+   commands:
+      - apt install neofetch && neofetch && df -l
