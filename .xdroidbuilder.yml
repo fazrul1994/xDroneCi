@@ -13,5 +13,4 @@ steps:
        - apt update -y && apt upgrade -y
        - git config --global user.name "xyzuan"
        - git config --global user.email "xyzuan@webmail.umm.ac.id"
-       - git clone --depth=1 https://github.com/xyz-prjkt/xbore_strmbreakr_lavender lavender
-       - bash xbore_lavender.sh
+       - bash xdroid_lavender.sh
