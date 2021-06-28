@@ -11,7 +11,6 @@ steps:
        from_secret: TOKEN
    commands:
        - apt update -y && apt upgrade -y
-       - apt install -y python3-pip build-essential libssl-dev libffi-dev python3-dev
        - git config --global user.name "xyzuan"
        - git config --global user.email "xyzuan@webmail.umm.ac.id"
        - bash xdroid_lavender.sh
