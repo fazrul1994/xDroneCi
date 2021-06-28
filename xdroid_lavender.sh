@@ -19,12 +19,12 @@ curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
         -d chat_id="${chat_id}" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
-        -d text="<b>xRomBuilder Started.<b/>"
+        -d text="<b>xRomBuilder Started.</b>"
 
 mkdir xdroid
 cd $(pwd)/xdroid
 repo init -u https://github.com/xdroid-CAF/xdroid_manifest -b eleven
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+repo sync
 }
 
 # Clone Device Stuff
