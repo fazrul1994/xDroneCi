@@ -7,7 +7,7 @@ KERNEL_ROOTDIR=$(pwd)/lavender # IMPORTANT ! Fill with your kernel source root d
 DEVICE_DEFCONFIG=lavender-perf_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
 CLANG_ROOTDIR=$(pwd)/proton # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=xyzuan # Change with your own name or else.
-export KBUILD_BUILD_HOST=xyzscape-ci # Change with your own hostname.
+export KBUILD_BUILD_HOST=xyzscape-cloudci # Change with your own hostname.
 IMAGE=$(pwd)/lavender/out/arch/arm64/boot/Image.gz-dtb
 DATE=$(date +"%F-%S")
 START=$(date +"%s")
@@ -32,14 +32,14 @@ echo ================================================
 function compile() {
 
    # Private CI
-   curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
-        -d chat_id="$chat_id" \
+   curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
+        -d chat_id="${chat_id}" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
         -d text="<b>xKernelCompiler</b>%0ABUILDER NAME : <code>${KBUILD_BUILD_USER}</code>%0ABUILDER HOST : <code>${KBUILD_BUILD_HOST}</code>%0ADEVICE DEFCONFIG : <code>${DEVICE_DEFCONFIG}</code>%0ACLANG ROOTDIR : <code>${CLANG_ROOTDIR}</code>%0AKERNEL ROOTDIR : <code>${KERNEL_ROOTDIR}</code>"
 
    # xyzplaygrnd
-   curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
+   curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
         -d chat_id="-1001389519102" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
@@ -63,13 +63,13 @@ function compile() {
 
 # sticker plox
 function sticker() {
-    curl -s -X POST "https://api.telegram.org/bot$token/sendSticker" \
+    curl -s -X POST "https://api.telegram.org/bot${token}/sendSticker" \
         -d sticker="CAACAgUAAxkBAAECfcRg2RoccdYCRdKV9VvHTsGGzPfAGwACSwYAAio_yVZ1PSnOxIKyfSAE-aN927wS5blhsE" \
-        -d chat_id="$chat_id"
+        -d chat_id="${chat_id}"
 }
 
 function sticker() {
-    curl -s -X POST "https://api.telegram.org/bot$token/sendSticker" \
+    curl -s -X POST "https://api.telegram.org/bot${token}/sendSticker" \
         -d sticker="CAACAgUAAxkBAAECfcRg2RoccdYCRdKV9VvHTsGGzPfAGwACSwYAAio_yVZ1PSnOxIKyfSAE-aN927wS5blhsE" \
         -d chat_id="-1001389519102"
 }
@@ -78,13 +78,13 @@ function sticker() {
 function push() {
     cd AnyKernel
     ZIP=$(echo *.zip)
-    curl -F document=@$ZIP "https://api.telegram.org/bot$token/sendDocument" \
-        -F chat_id="$chat_id" \
+    curl -F document=@$ZIP "https://api.telegram.org/bot${token}/sendDocument" \
+        -F chat_id="${chat_id}" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
         -F caption="Compile took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>Xiaomi Redmi Note 7 (lavender)</b> | <b>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
 
-    curl -F document=@$ZIP "https://api.telegram.org/bot$token/sendDocument" \
+    curl -F document=@$ZIP "https://api.telegram.org/bot${token}/sendDocument" \
         -F chat_id="-1001389519102" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
@@ -93,13 +93,13 @@ function push() {
 }
 # Fin Error
 function finerr() {
-    curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
-        -d chat_id="$chat_id" \
+    curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
+        -d chat_id="${chat_id}" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=markdown" \
         -d text="Build throw an error(s)"
 
-    curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
+    curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
         -d chat_id="-1001389519102" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=markdown" \
