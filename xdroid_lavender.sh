@@ -13,11 +13,13 @@ lib32readline-dev lib32z1-dev  liblz4-tool libncurses5-dev libsdl1.2-dev libssl-
 libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc yasm zip zlib1g-dev \
 libtinfo5 libncurses5
 
+# Debugging Dependency
+python3 ––version
+
 mkdir $(pwd)/bin
 PATH=$(pwd)/bin:$PATH
 curl https://storage.googleapis.com/git-repo-downloads/repo > $(pwd)/bin/repo
 chmod a+x $(pwd)/bin/repo
-sed -i '1s/python/python3/' $(pwd)/bin/repo
 
 # Sync Sources
 function sync() {
