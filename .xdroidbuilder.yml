@@ -5,14 +5,10 @@ steps:
  - name: xCi Console
    image: z4nyx/docker:latest
    environment:
-     ZIP_RELEASE:
-       from_secret: ZIP_RELEASE
-     TOKEN:
-       from_secret: BOT_API_KEY
-     CHATID:
+     chat_id:
        from_secret: CHAT_ID
-     ZIPNAME:
-       from_secret: ZIPNAME
+     token:
+       from_secret: TOKEN
    commands:
        - apt update -y && apt upgrade -y
        - git config --global user.name "xyzuan"
