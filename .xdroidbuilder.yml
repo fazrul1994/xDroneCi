@@ -2,19 +2,16 @@ kind: pipeline
 name : xCi
 version: 2.1
 steps:
- - name: Setup Enviroment
-   image: z4nyx/docker:latest
-   commands:
-       - apt update -y && apt upgrade -y
-       - apt install -y openssh-server git openjdk-8-jdk android-tools-adb bc bison build-essential curl flex g++-multilib gcc-multilib gnupg gperf imagemagick lib32ncurses-dev lib32readline-dev lib32z1-dev  liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc yasm zip zlib1g-dev libtinfo5 libncurses5 python3-pip libffi-dev python3-dev
- 
  - name: xCi Console
+   image: z4nyx/docker:latest
    environment:
      chat_id:
        from_secret: CHAT_ID
      token:
        from_secret: TOKEN
    commands:
+       - apt update -y && apt upgrade -y
+       - apt install -y openssh-server git openjdk-8-jdk android-tools-adb bc bison build-essential curl flex g++-multilib gcc-multilib gnupg gperf imagemagick lib32ncurses-dev lib32readline-dev lib32z1-dev  liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc yasm zip zlib1g-dev libtinfo5 libncurses5 python3-pip libffi-dev python3-dev
        - git config --global user.name "xyzuan"
        - git config --global user.email "xyzuan@webmail.umm.ac.id"
        - bash xdroid_lavender.sh
