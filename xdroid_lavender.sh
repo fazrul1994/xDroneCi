@@ -17,6 +17,7 @@ mkdir $(pwd)/bin
 PATH=$(pwd)/bin:$PATH
 curl https://storage.googleapis.com/git-repo-downloads/repo > $(pwd)/bin/repo
 chmod a+x $(pwd)/bin/repo
+sed -i '1s/python/python3/' $(pwd)/bin/repo
 
 # Sync Sources
 function sync() {
@@ -35,7 +36,7 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 
 # Clone Device Stuff
 function clonedevicedep() {
-git clone https://github.com/xyz-prjkt/xdroid_device_lavender device/xiaomi/lavender --depth=1 -b -b eleven-caf
+git clone https://github.com/xyz-prjkt/xdroid_device_lavender device/xiaomi/lavender --depth=1 -b eleven-caf
 git clone https://github.com/xyz-prjkt/xbore_strmbreakr_lavender kernel/xiaomi/lavender -b eleven-caf_eas
 git clone https://github.com/xyz-prjkt/hw_media hardware/qcom-caf/msm8998/media -b 11-LA.UM.9.6.2.r1-03600-89xx.0
 git clone https://github.com/xyz-prjkt/hw_audio hardware/qcom-caf/msm8998/audio -b 11-LA.UM.9.6.2.r1-03600-89xx.0
