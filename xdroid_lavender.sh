@@ -7,12 +7,6 @@ DATE=$(date +"%F-%S")
 START=$(date +"%s")
 
 # Installing some dependency
-apt install -y openssh-server git openjdk-8-jdk android-tools-adb bc bison \
-build-essential curl flex g++-multilib gcc-multilib gnupg gperf imagemagick lib32ncurses-dev \
-lib32readline-dev lib32z1-dev  liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev \
-libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc yasm zip zlib1g-dev \
-libtinfo5 libncurses5 python3-pip libffi-dev python3-dev
-
 mkdir $(pwd)/bin
 PATH=$(pwd)/bin:$PATH
 curl https://storage.googleapis.com/git-repo-downloads/repo > $(pwd)/bin/repo
