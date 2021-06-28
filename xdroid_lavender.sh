@@ -80,7 +80,6 @@ function finerr() {
     exit 1
 }
 
-}
 sync
 clonedevicedep
 compile
