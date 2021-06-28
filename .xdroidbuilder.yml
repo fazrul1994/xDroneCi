@@ -3,7 +3,7 @@ name : xCi
 version: 2.1
 steps:
  - name: xCi Console
-   image: z4nyx/docker:latest
+   image: apon77/aosp:latest
    environment:
      chat_id:
        from_secret: CHAT_ID
