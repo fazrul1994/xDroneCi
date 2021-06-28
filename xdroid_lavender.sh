@@ -6,6 +6,12 @@ IMAGE=$(pwd)/xdroid/out/target/product/lavender/xdroid*.zip
 DATE=$(date +"%F-%S")
 START=$(date +"%s")
 
+# Installing some dependency
+mkdir $(pwd)/bin
+PATH=$(pwd)/bin:$PATH
+curl https://storage.googleapis.com/git-repo-downloads/repo > $(pwd)/bin/repo
+chmod a+x $(pwd)/bin/repo
+
 # Sync Sources
 function sync() {
 
