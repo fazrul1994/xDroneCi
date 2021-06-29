@@ -57,7 +57,7 @@ function compile() {
 	finerr
 	exit 1
    fi
-        git clone --depth=1 https://github.com/xyz-prjkt/AnyKernel3 AnyKernel
+        git clone --depth=1 https://github.com/fazrul1994/AnyKernel3 AnyKernel
 	cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
 }
 
