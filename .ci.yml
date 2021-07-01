@@ -2,7 +2,7 @@ kind: pipeline
 name : xChain Toolchain Compiler
 version: rev1.5
 steps:
- - name: xRage-tc Compilation
+ - name: BrainDrill-tc Compilation
    image: clangbuiltlinux/ubuntu:latest
    environment:
      TG_CHAT_ID:
