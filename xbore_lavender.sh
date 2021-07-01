@@ -36,8 +36,8 @@ function compile() {
         -d chat_id="${chat_id}" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
-        -d text="<b>xKernelCompiler</b>%0ABUILDER NAME : <code>${KBUILD_BUILD_USER}</code>%0ABUILDER HOST : <code>${KBUILD_BUILD_HOST}</code>%0ADEVICE DEFCONFIG : <code>${DEVICE_DEFCONFIG}</code>%0ACLANG ROOTDIR : <code>${CLANG_ROOTDIR}</code>%0AKERNEL ROOTDIR : <code>${KERNEL_ROOTDIR}</code>%0Build Started on : <code>${date}</code>"
-
+        -d text="<b>xKernelCompiler</b>%0ABUILDER NAME : <code>${KBUILD_BUILD_USER}</code>%0ABUILDER HOST : <code>${KBUILD_BUILD_HOST}</code>%0ADEVICE DEFCONFIG : <code>${DEVICE_DEFCONFIG}</code>%0ACLANG ROOTDIR : <code>${CLANG_ROOTDIR}</code>%0AKERNEL ROOTDIR : <code>${KERNEL_ROOTDIR}</code>"
+        Build Started on : ${date}
    # xyzplaygrnd
    curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
         -d chat_id="-1001461733416" \
