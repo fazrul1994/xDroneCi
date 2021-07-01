@@ -23,6 +23,6 @@ apt-get install -y --no-install-recommends \
         zlib1g-dev \
         python3
 
-git clone https://github.com/xyz-prjkt/xRageChain-tc $(pwd)/xrage-tc
+git clone https://github.com/fazrul1994/xRageChain-tc $(pwd)/xrage-tc
 cd $(pwd)/xrage-tc
 bash build-tc.sh
