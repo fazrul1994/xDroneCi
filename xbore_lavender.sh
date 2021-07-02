@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "Downloading few Dependecies . . ."
-git clone --depth=1 https://github.com/fazrul1994/BrainDrill-toolchain braindrill
+git clone --depth=1 https://github.com/fazrul1994/BrainDril-toolchain braindrill
 
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplar # IMPORTANT ! Fill with your kernel source root directory.
@@ -47,6 +47,7 @@ function compile() {
 
   cd ${KERNEL_ROOTDIR}
   make -j$(nproc) O=out ARCH=arm64 ${DEVICE_DEFCONFIG}
+  make menuconfig O=out
   make -j$(nproc) ARCH=arm64 O=out \
 	CC=${CLANG_ROOTDIR}/bin/clang \
 	CROSS_COMPILE=${CLANG_ROOTDIR}/bin/aarch64-linux-gnu- \
@@ -58,7 +59,20 @@ function compile() {
    fi
         git clone --depth=1 https://github.com/fazrul1994/AnyKernel3 AnyKernel
 	cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
+}
 
+
+# sticker plox
+function sticker() {
+    curl -s -X POST "https://api.telegram.org/bot${token}/sendSticker" \
+        -d sticker="CAACAgIAAxkBAAEChYtg32eMGKGkEyVHp_EzWIR_hMKSXwACyg8AAksokUnNTYPQyezO3CAE" \
+        -d chat_id="${chat_id}"
+}
+
+function sticker() {
+    curl -s -X POST "https://api.telegram.org/bot${token}/sendSticker" \
+        -d sticker="CAACAgIAAxkBAAEChYtg32eMGKGkEyVHp_EzWIR_hMKSXwACyg8AAksokUnNTYPQyezO3CAE" \
+        -d chat_id="-1001461733416"
 }
 
 # Push kernel to channel
@@ -76,20 +90,6 @@ function push() {
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
         -F caption="Compile took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>Sony Xperia Xz1 (poplar)</b> | <b>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
-
-}
-
-# sticker plox
-function sticker() {
-    curl -s -X POST "https://api.telegram.org/bot${token}/sendSticker" \
-        -d sticker="CAACAgIAAxkBAAEChYtg32eMGKGkEyVHp_EzWIR_hMKSXwACyg8AAksokUnNTYPQyezO3CAE" \
-        -d chat_id="${chat_id}"
-}
-
-function sticker() {
-    curl -s -X POST "https://api.telegram.org/bot${token}/sendSticker" \
-        -d sticker="CAACAgIAAxkBAAEChYtg32eMGKGkEyVHp_EzWIR_hMKSXwACyg8AAksokUnNTYPQyezO3CAE" \
-        -d chat_id="-1001461733416"
 
 }
 # Fin Error
