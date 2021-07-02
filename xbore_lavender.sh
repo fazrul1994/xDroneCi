@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "Downloading few Dependecies . . ."
-git clone --depth=1 https://github.com/fazrul1994/BrainDril-toolchain braindrill
+git clone --depth=1 https://github.com/fazrul1994/BrainDrill-toolchain braindrill
 
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplar # IMPORTANT ! Fill with your kernel source root directory.
