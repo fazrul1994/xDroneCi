@@ -1,17 +1,13 @@
 kind: pipeline
-name : xCi
+name : xKernelCompiler
 version: 2.1
 steps:
- - name: xCi Console
-   image: z4nyx/docker:latest
+ - name: xKernelCompiler Compilation
+   image: xyzuan/xdocker:latest
    environment:
      chat_id:
        from_secret: CHAT_ID
      token:
        from_secret: TOKEN
    commands:
-       - apt update -y && apt upgrade -y
-       - git config --global user.name "fazrul1994"
-       - git config --global user.email "fazrulfadhilah@gmail.com"
-       - git clone --depth=1 https://github.com/fazrul1994/android_kernel_sony_msm8998 poplar
-       - bash xbore_lavender.sh
+       - bash xKernelCompiler_build.sh
