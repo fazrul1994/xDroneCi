@@ -4,10 +4,10 @@ git clone --depth=1 https://github.com/fazrul1994/azure-clang azure
 
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplar # IMPORTANT ! Fill with your kernel source root directory.
-DEVICE_DEFCONFIG=ignominiOus-poplaR_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
+DEVICE_DEFCONFIG=ignominiOus-poplaR-dsds_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
 CLANG_ROOTDIR=$(pwd)/azure # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=NoFace # Change with your own name or else.
-export KBUILD_BUILD_HOST=NoName-clouddroneci # Change with your own hostname.
+export KBUILD_BUILD_HOST=NoName-cloudDroneCI # Change with your own hostname.
 IMAGE=$(pwd)/poplar/out/arch/arm64/boot/Image.gz-dtb
 DATE=$(date +"%F-%S")
 START=$(date +"%s")
@@ -112,7 +112,7 @@ function finerr() {
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
-    zip -r9 ignominiOus-poplaR-${DATE}.zip *
+    zip -r9 ignominiOus-dsds-${DATE}.zip *
     cd ..
 }
 check
