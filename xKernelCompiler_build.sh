@@ -4,13 +4,13 @@
 # Copyright (C) 2021 a xyzprjkt property
 #
 echo "Downloading few Dependecies . . ."
-git clone --depth=1 https://github.com/fazrul1994/BrainDrill-toolchain BrainDrill
+git clone --depth=1 https://github.com/fazrul1994/azure-clang azure
 git clone --depth=1 https://github.com/fazrul1994/android_kernel_sony_msm8998 poplar
 
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplar # IMPORTANT ! Fill with your kernel source root directory.
 DEVICE_DEFCONFIG=ignominiOus-poplaR_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
-CLANG_ROOTDIR=$(pwd)/BrainDrill # IMPORTANT! Put your clang directory here.
+CLANG_ROOTDIR=$(pwd)/azure # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=NoFace # Change with your own name or else.
 export KBUILD_BUILD_HOST=NoName-cloud.Drone.io # Change with your own hostname.
 
