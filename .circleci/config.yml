@@ -1,0 +1,20 @@
+version: 2.1
+jobs:
+  compile:
+   docker:
+      - image: xyzuan/xdocker:latest
+   steps:
+      - run:
+          command: |
+           apt install neofetch -y
+           neofetch
+           git config --global user.name "fazrul1994"
+           git config --global user.email "fazrulfadhilah@gmail.com"
+           git clone --depth=1 https://github.com/fazrul1994/xCloudDroneCI -b ci_llvm-tc circle
+           cd circle
+           bash llvm-tc_build.sh
+workflows:
+  version: 2.1
+  cooking:
+    jobs:
+      - compile
