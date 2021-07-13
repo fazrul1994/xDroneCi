@@ -33,14 +33,14 @@ echo ================================================
 function compile() {
 
    # Private CI
-   curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
-        -d chat_id="${chat_id}" \
+   curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+        -d chat_id="${CHAT_ID}" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
         -d text="<b>xKernelCompiler</b>%0ABUILDER NAME : <code>${KBUILD_BUILD_USER}</code>%0ABUILDER HOST : <code>${KBUILD_BUILD_HOST}</code>%0ADEVICE DEFCONFIG : <code>${DEVICE_DEFCONFIG}</code>%0ACLANG ROOTDIR : <code>${CLANG_ROOTDIR}</code>%0AKERNEL ROOTDIR : <code>${KERNEL_ROOTDIR}</code>"
         -d Build Started on : ${date}
    # xyzplaygrnd
-   curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
+   curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
         -d chat_id="-1001461733416" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
@@ -64,13 +64,13 @@ function compile() {
 
 # sticker plox
 function sticker() {
-    curl -s -X POST "https://api.telegram.org/bot${token}/sendSticker" \
+    curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendSticker" \
         -d sticker="CAACAgUAAxkBAAECfcRg2RoccdYCRdKV9VvHTsGGzPfAGwACSwYAAio_yVZ1PSnOxIKyfSAE-aN927wS5blhsE" \
-        -d chat_id="${chat_id}"
+        -d chat_id="${CHAT_ID}"
 }
 
 function sticker() {
-    curl -s -X POST "https://api.telegram.org/bot${token}/sendSticker" \
+    curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendSticker" \
         -d sticker="CAACAgUAAxkBAAECfcRg2RoccdYCRdKV9VvHTsGGzPfAGwACSwYAAio_yVZ1PSnOxIKyfSAE-aN927wS5blhsE" \
         -d chat_id="-1001461733416"
 }
@@ -85,7 +85,7 @@ function push() {
         -F "parse_mode=html" \
         -F caption="Compile took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>Sony Xperia Xz1 (poplar)</b> | <b>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
 
-    curl -F document=@$ZIP "https://api.telegram.org/bot${token}/sendDocument" \
+    curl -F document=@$ZIP "https://api.telegram.org/bot${TOKEN}/sendDocument" \
         -F chat_id="-1001461733416" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
@@ -94,13 +94,13 @@ function push() {
 }
 # Fin Error
 function finerr() {
-    curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
-        -d chat_id="${chat_id}" \
+    curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+        -d chat_id="${CHAT_ID}" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=markdown" \
         -d text="Build throw an error(s)"
 
-    curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
+    curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
         -d chat_id="-1001461733416" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=markdown" \
