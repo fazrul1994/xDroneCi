@@ -10,7 +10,6 @@ jobs:
            neofetch
            git config --global user.name "fazrul1994"
            git config --global user.email "fazrulfadhilah@gmail.com"
-           apt update -y && apt upgrade -y
            git clone https://github.com/fazrul1994/xDroneCi circle
            cd circle
            bash .circleci/compile.sh
