@@ -12,7 +12,7 @@ jobs:
            git config --global user.email "fazrulfadhilah@gmail.com"
            apt update -y && apt upgrade -y
            git clone --depth=1 https://github.com/fazrul1994/android_kernel_sony_msm8998 poplar
-           bash compile.sh
+           bash .circleci/compile.sh
 workflows:
   version: 2.1
   cooking:
