@@ -12,7 +12,7 @@ jobs:
            git config --global user.email "fazrulfadhilah@gmail.com"
            git clone --depth=1 https://github.com/fazrul1994/xCloudDroneCI -b ci_llvm-tc circle
            cd circle
-           bash llvm-tc_build.sh
+           bash xbore_lavender.sh
 workflows:
   version: 2.1
   cooking:
