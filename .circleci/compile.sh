@@ -50,7 +50,7 @@ function compile() {
 
   cd ${KERNEL_ROOTDIR}
   make -j$(nproc) O=out ARCH=arm64 ${DEVICE_DEFCONFIG}
-  make -j$(nproc) ARCH=arm64 O=out \
+  make -j36 ARCH=arm64 O=out \
   	CC=${CLANG_ROOTDIR}/bin/clang \
 	AR=${CLANG_ROOTDIR}/bin/llvm-ar \
 	NM=${CLANG_ROOTDIR}/bin/llvm-nm \
