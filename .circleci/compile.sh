@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 echo "Downloading few Dependecies . . ."
+git config --global user.name "fazrul1994"
+git config --global user.email "fazrulfadhilah@gmail.com"
 git clone --depth=1 https://github.com/fazrul1994/azure-clang azure
-git clone --depth=1 https://github.com/fazrul1994/android_kernel_sony_msm8998 poplar
+git clone --depth=1 https://github.com/fazrul1994/ignominiOus_Poplar poplar
 
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplar # IMPORTANT ! Fill with your kernel source root directory.
