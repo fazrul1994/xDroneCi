@@ -33,7 +33,7 @@ echo ================================================
 echo BUILDER NAME = ${KBUILD_BUILD_USER}
 echo BUILDER HOSTNAME = ${KBUILD_BUILD_HOST}
 echo DEVICE_DEFCONFIG = ${DEVICE_DEFCONFIG}
-echo CLANG_VERSION = $(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')
+echo TOOLCHAIN_VERSION = ${KBUILD_COMPILER_STRING}
 echo CLANG_ROOTDIR = ${CLANG_ROOTDIR}
 echo KERNEL_ROOTDIR = ${KERNEL_ROOTDIR}
 echo ================================================
@@ -58,7 +58,7 @@ function compile() {
 
   cd ${KERNEL_ROOTDIR}
   make -j$(nproc) O=out ARCH=arm64 ${DEVICE_DEFCONFIG}
-  make -j$(nproc) ARCH=arm64 O=out \
+  make -j$(nproc --all) ARCH=arm64 O=out \
     CC=${CLANG_ROOTDIR}/bin/clang \
     AR=${CLANG_ROOTDIR}/bin/llvm-ar \
   	NM=${CLANG_ROOTDIR}/bin/llvm-nm \
