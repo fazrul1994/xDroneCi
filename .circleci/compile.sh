@@ -2,7 +2,7 @@
 echo "Downloading few Dependecies . . ."
 git config --global user.name "fazrul1994"
 git config --global user.email "fazrulfadhilah@gmail.com"
-git clone --depth=1 https://github.com/fazrul1994/azure-clang azure
+git clone --depth=1 https://github.com/xyz-prjkt/xRageTC-clang xRage
 git clone --depth=1 https://github.com/fazrul1994/ignominiOus_Poplar poplar
 
 # Main
