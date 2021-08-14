@@ -8,7 +8,7 @@ git clone --depth=1 https://github.com/fazrul1994/ignominiOus_Poplar poplar
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplar # IMPORTANT ! Fill with your kernel source root directory.
 DEVICE_DEFCONFIG=ignominiOus-poplaR_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
-CLANG_ROOTDIR=$(pwd)/azure # IMPORTANT! Put your clang directory here.
+CLANG_ROOTDIR=$(pwd)/xRage # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=NoFace # Change with your own name or else.
 export KBUILD_BUILD_HOST=NoName-circleCI # Change with your own hostname.
 IMAGE=$(pwd)/poplar/out/arch/arm64/boot/Image.gz-dtb
