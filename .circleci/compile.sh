@@ -135,3 +135,4 @@ zipping
 END=$(date +"%s")
 DIFF=$(($END - $START))
 push
+
