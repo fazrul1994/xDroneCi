@@ -11,6 +11,8 @@ DEVICE_DEFCONFIG=ignominiOus-poplaR_defconfig # IMPORTANT ! Declare your kernel 
 CLANG_ROOTDIR=$(pwd)/xRage # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=NoFace # Change with your own name or else.
 export KBUILD_BUILD_HOST=NoName-circleCI # Change with your own hostname.
+LLD_VER="$("$CLANG_ROOTDIR"/bin/ld.lld --version | head -n 1)"
+export KBUILD_COMPILER_STRING="$CLANG_VER with $LLD_VER"
 IMAGE=$(pwd)/poplar/out/arch/arm64/boot/Image.gz-dtb
 DATE=$(date +"%F-%S")
 START=$(date +"%s")
@@ -26,6 +28,7 @@ echo BUILDER NAME = ${KBUILD_BUILD_USER}
 echo BUILDER HOSTNAME = ${KBUILD_BUILD_HOST}
 echo DEVICE_DEFCONFIG = ${DEVICE_DEFCONFIG}
 echo CLANG_VERSION = $(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')
+echo KBUILD_COMPILER_STRING="$CLANG_VER with $LLD_VER"
 echo CLANG_ROOTDIR = ${CLANG_ROOTDIR}
 echo KERNEL_ROOTDIR = ${KERNEL_ROOTDIR}
 echo ================================================
@@ -72,13 +75,13 @@ function compile() {
 # sticker plox
 function sticker() {
     curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendSticker" \
-        -d sticker="CAACAgUAAxkBAAECjDRg5d7dDFZ6ote8tXFHlM6qMF-YBQACYAIAAg3z6VXA2X_VuGq9KSAE" \
+        -d sticker="CAACAgIAAxkBAAECnUpg-NBmVXKhU-n0OHvvW5eBO34KEQACEAEAAlKJkSPESPH6zBwG8yAE" \
         -d chat_id="${CHAT_ID}"
 }
 
 function sticker() {
     curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendSticker" \
-        -d sticker="CAACAgUAAxkBAAECjDRg5d7dDFZ6ote8tXFHlM6qMF-YBQACYAIAAg3z6VXA2X_VuGq9KSAE" \
+        -d sticker="CAACAgIAAxkBAAECnUpg-NBmVXKhU-n0OHvvW5eBO34KEQACEAEAAlKJkSPESPH6zBwG8yAE" \
         -d chat_id="-1001461733416"
 }
 
@@ -87,7 +90,7 @@ function push() {
     cd AnyKernel
     ZIP=$(echo *.zip)
     curl -F document=@$ZIP "https://api.telegram.org/bot${TOKEN}/sendDocument" \
-        -F chat_id="${chat_id}" \
+        -F chat_id="${CHAT_ID}" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
         -F caption="Compile took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>Sony Xperia Xz1 (poplar)</b> | <b>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
