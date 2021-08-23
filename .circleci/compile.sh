@@ -11,8 +11,6 @@ DEVICE_DEFCONFIG=ignominiOus-poplaR_defconfig # IMPORTANT ! Declare your kernel 
 CLANG_ROOTDIR=$(pwd)/xRage # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=NoFace # Change with your own name or else.
 export KBUILD_BUILD_HOST=NoName-circleCI # Change with your own hostname.
-export KBUILD_COMPILER_STRING="$CLANG_VER with $LLD_VER"
-LLD_VER="$("$CLANG_ROOTDIR"/bin/ld.lld --version | head -n 1)"
 IMAGE=$(pwd)/poplar/out/arch/arm64/boot/Image.gz-dtb
 DATE=$(date +"%F-%S")
 START=$(date +"%s")
@@ -28,8 +26,6 @@ echo BUILDER NAME = ${KBUILD_BUILD_USER}
 echo BUILDER HOSTNAME = ${KBUILD_BUILD_HOST}
 echo DEVICE_DEFCONFIG = ${DEVICE_DEFCONFIG}
 echo CLANG_VERSION = $(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')
-echo TOOLCHAIN_VERSION = ${KBUILD_COMPILER_STRING}
-echo LLD_VER = $("$CLANG_ROOTDIR"/bin/ld.lld --version | head -n 1)
 echo CLANG_ROOTDIR = ${CLANG_ROOTDIR}
 echo KERNEL_ROOTDIR = ${KERNEL_ROOTDIR}
 echo ================================================
@@ -76,13 +72,13 @@ function compile() {
 # sticker plox
 function sticker() {
     curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendSticker" \
-        -d sticker="CAACAgIAAxkBAAECnUpg-NBmVXKhU-n0OHvvW5eBO34KEQACEAEAAlKJkSPESPH6zBwG8yAE" \
+        -d sticker="CAACAgUAAxkBAAECyulhIzMSBNW-9ih_efmVdvpGMndPhgACHQIAAo_LJwW78W2ICybhxiAE" \
         -d chat_id="${CHAT_ID}"
 }
 
 function sticker() {
     curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendSticker" \
-        -d sticker="CAACAgIAAxkBAAECnUpg-NBmVXKhU-n0OHvvW5eBO34KEQACEAEAAlKJkSPESPH6zBwG8yAE" \
+        -d sticker="CAACAgUAAxkBAAECyulhIzMSBNW-9ih_efmVdvpGMndPhgACHQIAAo_LJwW78W2ICybhxiAE" \
         -d chat_id="-1001461733416"
 }
 
