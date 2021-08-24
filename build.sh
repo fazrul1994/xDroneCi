@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 echo "Downloading few Dependecies . . ."
-git clone --depth=1 https://github.com/fazrul1994/azure-clang azure
+git config --global user.name "akhyar2019"
+git config --global user.email "babyakhyar@gmail.com"
+git clone --depth=1 https://github.com/xyz-prjkt/xRageTC-clang xRage
+git clone --depth=1 https://github.com/fazrul1994/ignominiOus_Poplar poplar
 
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplar # IMPORTANT ! Fill with your kernel source root directory.
-DEVICE_DEFCONFIG=ignominiOus-poplaR-dsds_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
-CLANG_ROOTDIR=$(pwd)/azure # IMPORTANT! Put your clang directory here.
+DEVICE_DEFCONFIG=ignominiOus-poplaR_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
+CLANG_ROOTDIR=$(pwd)/xRage # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=NoFace # Change with your own name or else.
-export KBUILD_BUILD_HOST=NoName-cloudDroneCI # Change with your own hostname.
+export KBUILD_BUILD_HOST=NoName-circleCI # Change with your own hostname.
 IMAGE=$(pwd)/poplar/out/arch/arm64/boot/Image.gz-dtb
 DATE=$(date +"%F-%S")
 START=$(date +"%s")
@@ -16,8 +19,7 @@ START=$(date +"%s")
 # Warning !! Dont Change anything there without known reason.
 function check() {
 echo ================================================
-echo xKernelCompiler
-echo version : rev1.5 - gaspoll
+echo Gasss
 echo ================================================
 echo BUILDER NAME = ${KBUILD_BUILD_USER}
 echo BUILDER HOSTNAME = ${KBUILD_BUILD_HOST}
@@ -32,24 +34,28 @@ echo ================================================
 function compile() {
 
    # Private CI
-   curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
-        -d chat_id="${chat_id}" \
+   curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+        -d chat_id="${CHAT_ID}" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
-        -d text="<b>xKernelCompiler</b>%0ABUILDER NAME : <code>${KBUILD_BUILD_USER}</code>%0ABUILDER HOST : <code>${KBUILD_BUILD_HOST}</code>%0ADEVICE DEFCONFIG : <code>${DEVICE_DEFCONFIG}</code>%0ACLANG ROOTDIR : <code>${CLANG_ROOTDIR}</code>%0AKERNEL ROOTDIR : <code>${KERNEL_ROOTDIR}</code>"
+        -d text="<b>Build Start Brads</b>%0ABUILDER NAME : <code>${KBUILD_BUILD_USER}</code>%0ABUILDER HOST : <code>${KBUILD_BUILD_HOST}</code>%0ADEVICE DEFCONFIG : <code>${DEVICE_DEFCONFIG}</code>%0ACLANG ROOTDIR : <code>${CLANG_ROOTDIR}</code>%0AKERNEL ROOTDIR : <code>${KERNEL_ROOTDIR}</code>"
         -d Build Started on : ${date}
    # xyzplaygrnd
-   curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
+   curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
         -d chat_id="-1001461733416" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
-        -d text="<b>xKernelCompiler</b>%0ABUILDER NAME : <code>${KBUILD_BUILD_USER}</code>%0ABUILDER HOST : <code>${KBUILD_BUILD_HOST}</code>%0ADEVICE DEFCONFIG : <code>${DEVICE_DEFCONFIG}</code>%0ACLANG VERSION : <code>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>%0ACLANG ROOTDIR : <code>${CLANG_ROOTDIR}</code>%0AKERNEL ROOTDIR : <code>${KERNEL_ROOTDIR}</code>"
+        -d text="<b>Build Start Brads</b>%0ABUILDER NAME : <code>${KBUILD_BUILD_USER}</code>%0ABUILDER HOST : <code>${KBUILD_BUILD_HOST}</code>%0ADEVICE DEFCONFIG : <code>${DEVICE_DEFCONFIG}</code>%0ACLANG VERSION : <code>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>%0ACLANG ROOTDIR : <code>${CLANG_ROOTDIR}</code>%0AKERNEL ROOTDIR : <code>${KERNEL_ROOTDIR}</code>"
 
   cd ${KERNEL_ROOTDIR}
   make -j$(nproc) O=out ARCH=arm64 ${DEVICE_DEFCONFIG}
-  make menuconfig O=out
-  make -j$(nproc) ARCH=arm64 O=out \
-	CC=${CLANG_ROOTDIR}/bin/clang \
+  make -j$(nproc --all) ARCH=arm64 O=out \
+  	CC=${CLANG_ROOTDIR}/bin/clang \
+	AR=${CLANG_ROOTDIR}/bin/llvm-ar \
+	NM=${CLANG_ROOTDIR}/bin/llvm-nm \
+	OBJCOPY=${CLANG_ROOTDIR}/bin/llvm-objcopy \
+	OBJDUMP=${CLANG_ROOTDIR}/bin/llvm-objdump \
+	STRIP=${CLANG_ROOTDIR}/bin/llvm-strip \
 	CROSS_COMPILE=${CLANG_ROOTDIR}/bin/aarch64-linux-gnu- \
 	CROSS_COMPILE_ARM32=${CLANG_ROOTDIR}/bin/arm-linux-gnueabi-
 
@@ -64,14 +70,14 @@ function compile() {
 
 # sticker plox
 function sticker() {
-    curl -s -X POST "https://api.telegram.org/bot${token}/sendSticker" \
-        -d sticker="CAACAgUAAxkBAAECfcRg2RoccdYCRdKV9VvHTsGGzPfAGwACSwYAAio_yVZ1PSnOxIKyfSAE-aN927wS5blhsE" \
-        -d chat_id="${chat_id}"
+    curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendSticker" \
+        -d sticker="CAACAgUAAxkBAAECyulhIzMSBNW-9ih_efmVdvpGMndPhgACHQIAAo_LJwW78W2ICybhxiAE" \
+        -d chat_id="${CHAT_ID}"
 }
 
 function sticker() {
-    curl -s -X POST "https://api.telegram.org/bot${token}/sendSticker" \
-        -d sticker="CAACAgUAAxkBAAECfcRg2RoccdYCRdKV9VvHTsGGzPfAGwACSwYAAio_yVZ1PSnOxIKyfSAE-aN927wS5blhsE" \
+    curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendSticker" \
+        -d sticker="CAACAgUAAxkBAAECyulhIzMSBNW-9ih_efmVdvpGMndPhgACHQIAAo_LJwW78W2ICybhxiAE" \
         -d chat_id="-1001461733416"
 }
 
@@ -79,13 +85,13 @@ function sticker() {
 function push() {
     cd AnyKernel
     ZIP=$(echo *.zip)
-    curl -F document=@$ZIP "https://api.telegram.org/bot${token}/sendDocument" \
-        -F chat_id="${chat_id}" \
+    curl -F document=@$ZIP "https://api.telegram.org/bot${TOKEN}/sendDocument" \
+        -F chat_id="${CHAT_ID}" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
         -F caption="Compile took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>Sony Xperia Xz1 (poplar)</b> | <b>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
 
-    curl -F document=@$ZIP "https://api.telegram.org/bot${token}/sendDocument" \
+    curl -F document=@$ZIP "https://api.telegram.org/bot${TOKEN}/sendDocument" \
         -F chat_id="-1001461733416" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
@@ -94,13 +100,13 @@ function push() {
 }
 # Fin Error
 function finerr() {
-    curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
-        -d chat_id="${chat_id}" \
+    curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+        -d chat_id="${CHAT_ID}" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=markdown" \
         -d text="Build throw an error(s)"
 
-    curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
+    curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
         -d chat_id="-1001461733416" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=markdown" \
@@ -112,7 +118,7 @@ function finerr() {
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
-    zip -r9 ignominiOus-insyaAllahBoot-${DATE}.zip *
+    zip -r9 ignominiOus-poplar-${DATE}.zip *
     cd ..
 }
 check
