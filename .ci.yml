@@ -1,0 +1,13 @@
+kind: pipeline
+name : xKernel Compiler
+version: rev1.5_template
+steps:
+ - name: xKernel Compilation
+   image: xyzuan/xdocker:latest
+   environment:
+     TOKEN:
+       from_secret: TOKEN
+     CHAT_ID:
+       from_secret: CHAT_ID
+   commands:
+     - bash build.sh
