@@ -2,7 +2,6 @@
 echo "Downloading few Dependecies . . ."
 git config --global user.name "akhyar2019"
 git config --global user.email "babyakhyar@gmail.com"
-neofetch
 git clone --depth=1 https://github.com/Akhyar2019/BrainDrill-Clang braindrill
 git clone --depth=1 https://github.com/fazrul1994/ignominiOus_Poplar poplar
 
