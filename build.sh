@@ -7,7 +7,7 @@ git clone --depth=1 https://github.com/fazrul1994/android_kernel_sony_msm8998-EA
 
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplar # IMPORTANT ! Fill with your kernel source root directory.
-DEVICE_DEFCONFIG=lineage-msm8998-yoshino-poplar_dsds_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
+DEVICE_DEFCONFIG=ignominiOus-poplaR_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
 CLANG_ROOTDIR=$(pwd)/braindrill # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=NoFace # Change with your own name or else.
 export KBUILD_BUILD_HOST=Cloud-Drone.io # Change with your own hostname.
