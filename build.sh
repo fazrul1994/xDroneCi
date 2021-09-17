@@ -3,7 +3,7 @@ echo "Downloading few Dependecies . . ."
 git config --global user.name "akhyar2019"
 git config --global user.email "babyakhyar@gmail.com"
 git clone --depth=1 https://github.com/Akhyar2019/BrainDrill-Clang braindrill
-git clone --depth=1 https://github.com/fazrul1994/android_kernel_sony_msm8998-EAS poplar
+git clone --depth=1 https://github.com/fazrul1994/ignominiOus_Poplar poplar
 
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplar # IMPORTANT ! Fill with your kernel source root directory.
@@ -89,13 +89,13 @@ function push() {
         -F chat_id="${CHAT_ID}" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="Compile took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>Sony Xperia Xz1 (poplar)</b> | <b>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
+        -F caption="Beres Brads, Cepet kan.. Cuma $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s) yuhuuu. | For <b>Sony Xperia Xz1 (poplar)</b> | <b>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
 
     curl -F document=@$ZIP "https://api.telegram.org/bot${TOKEN}/sendDocument" \
         -F chat_id="-1001461733416" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="Compile took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s). | For <b>Sony Xperia Xz1 (poplar)</b> | <b>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
+        -F caption="Beres Brads, Cepet kan.. Cuma $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s) yuhuuu. | For <b>Sony Xperia Xz1 (poplar)</b> | <b>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
 
 }
 # Fin Error
