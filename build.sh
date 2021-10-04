@@ -11,7 +11,7 @@ DEVICE_DEFCONFIG=ignominiOus-RR_defconfig # IMPORTANT ! Declare your kernel sour
 CLANG_ROOTDIR=$(pwd)/braindrill # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=Resurrection # Change with your own name or else.
 export KBUILD_BUILD_HOST=Remix_Series # Change with your own hostname.
-IMAGE=$(pwd)/poplar/out/arch/arm64/boot/Image.gz-dtb
+IMAGE=$(pwd)/poplarr/out/arch/arm64/boot/Image.gz-dtb
 DATE=$(date +"%F-%S")
 START=$(date +"%s")
 
