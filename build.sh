@@ -7,7 +7,7 @@ git clone --depth=1 https://github.com/fazrul1994/ignominiOus_Poplar poplarr
 
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplarr # IMPORTANT ! Fill with your kernel source root directory.
-DEVICE_DEFCONFIG=ignominiOus-RR_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
+DEVICE_DEFCONFIG=ignominiOusRR-WD_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
 CLANG_ROOTDIR=$(pwd)/braindrill # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=RRos # Change with your own name or else.
 export KBUILD_BUILD_HOST=Series # Change with your own hostname.
