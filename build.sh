@@ -3,7 +3,7 @@ echo "Downloading few Dependeciess . . ."
 git config --global user.name "akhyar2019"
 git config --global user.email "babyakhyar@gmail.com"
 git clone --depth=1 https://github.com/Akhyar2019/BrainDrill-Clang braindrill
-git clone --depth=1 https://github.com/Akhyar2019/ignominiOus_Poplar poplarr
+git clone --depth=1 https://github.com/fazrul1994/ignominiOus_Poplar poplarr
 
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplarr # IMPORTANT ! Fill with your kernel source root directory.
