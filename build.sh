@@ -3,11 +3,11 @@ echo "Downloading few Dependeciess . . ."
 git config --global user.name "akhyar2019"
 git config --global user.email "babyakhyar@gmail.com"
 git clone --depth=1 https://github.com/Akhyar2019/BrainDrill-Clang braindrill
-git clone --depth=1 https://github.com/fazrul1994/ignominiOus_Poplar -b lineage-17.1 poplarr
+git clone --depth=1 https://github.com/fazrul1994/ignominiOus_Poplar poplarr
 
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplarr # IMPORTANT ! Fill with your kernel source root directory.
-DEVICE_DEFCONFIG=ignominiOus_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
+DEVICE_DEFCONFIG=ignominiOusRR-WD_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
 CLANG_ROOTDIR=$(pwd)/braindrill # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=Cloud # Change with your own name or else.
 export KBUILD_BUILD_HOST=Drone.io # Change with your own hostname.
