@@ -3,15 +3,15 @@ echo "Downloading few Dependeciess . . ."
 git config --global user.name "akhyar2019"
 git config --global user.email "babyakhyar@gmail.com"
 git clone --depth=1 https://github.com/Akhyar2019/BrainDrill-Clang braindrill
-git clone --depth=1 https://github.com/fazrul1994/ignominiOus_Poplar poplar
+git clone --depth=1 https://github.com/fazrul1994/android_kernel_sony_msm8998 poplarr
 
 # Main
-KERNEL_ROOTDIR=$(pwd)/poplar # IMPORTANT ! Fill with your kernel source root directory.
-DEVICE_DEFCONFIG=ignominiOus-poplaR_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
+KERNEL_ROOTDIR=$(pwd)/poplarr # IMPORTANT ! Fill with your kernel source root directory.
+DEVICE_DEFCONFIG=ignominiOusSakura_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
 CLANG_ROOTDIR=$(pwd)/braindrill # IMPORTANT! Put your clang directory here.
-export KBUILD_BUILD_USER=NoFace # Change with your own name or else.
-export KBUILD_BUILD_HOST=Cloud-Drone.io # Change with your own hostname.
-IMAGE=$(pwd)/poplar/out/arch/arm64/boot/Image.gz-dtb
+export KBUILD_BUILD_USER=Cloud # Change with your own name or else.
+export KBUILD_BUILD_HOST=Drone.io # Change with your own hostname.
+IMAGE=$(pwd)/poplarr/out/arch/arm64/boot/Image.gz-dtb
 DATE=$(date +"%F-%S")
 START=$(date +"%s")
 
@@ -19,7 +19,7 @@ START=$(date +"%s")
 # Warning !! Dont Change anything there without known reason.
 function check() {
 echo ================================================
-echo Gasss
+echo Gassss
 echo ================================================
 echo BUILDER NAME = ${KBUILD_BUILD_USER}
 echo BUILDER HOSTNAME = ${KBUILD_BUILD_HOST}
@@ -90,14 +90,12 @@ function push() {
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
         -F caption="🖇 Build Beres Bray, Cepet Gak Tuh.. Cuma $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s) yuhuuu. | For <b>Sony Xperia Xz1 (poplar)</b> | <b>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
-        -F caption="Changelog : Merge remote-tracking branch 'derf/lineage-18.1' into ignominiOus"
-
+        
     curl -F document=@$ZIP "https://api.telegram.org/bot${TOKEN}/sendDocument" \
         -F chat_id="-1001461733416" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
         -F caption="🖇 Build Beres Bray, Cepet Gak Tuh.. Cuma $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s) yuhuuu. | For <b>Sony Xperia Xz1 (poplar)</b> | <b>$(${CLANG_ROOTDIR}/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b>"
-        -F caption="Changelog : Merge remote-tracking branch 'derf/lineage-18.1' into ignominiOus"
 
 }
 # Fin Error
@@ -120,7 +118,7 @@ function finerr() {
 # Zipping
 function zipping() {
     cd AnyKernel || exit 1
-    zip -r9 ignominiOus-poplar-${DATE}.zip *
+    zip -r9 ignominiOus-poplarRR-${DATE}.zip *
     cd ..
 }
 check
