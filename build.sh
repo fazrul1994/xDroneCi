@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "Downloading few Dependecies . . ."
+echo "Downloading few Dependecies .. ."
 git config --global user.name "akhyar2019"
 git config --global user.email "babyakhyar@gmail.com"
 git clone --depth=1 https://github.com/Akhyar2019/BrainDrill-Clang braindrill
