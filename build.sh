@@ -3,11 +3,11 @@ echo "Downloading few Dependecies ..."
 git config --global user.name "akhyar2019"
 git config --global user.email "babyakhyar@gmail.com"
 git clone --depth=1 https://github.com/Akhyar2019/BrainDrill-Clang braindrill
-git clone --depth=1 https://github.com/fazrul1994/ignominiOus_Poplar poplarr
+git clone --depth=1 https://github.com/Akhyar2019/android_kernel_sony_msm8998 -n lineage-17.1 poplarr
 
 # Main
 KERNEL_ROOTDIR=$(pwd)/poplarr # IMPORTANT ! Fill with your kernel source root directory.
-DEVICE_DEFCONFIG=ignominiOus-ProjectSakura_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
+DEVICE_DEFCONFIG=lineage-msm8998-yoshino-poplar_defconfig # IMPORTANT ! Declare your kernel source defconfig file here.
 CLANG_ROOTDIR=$(pwd)/braindrill # IMPORTANT! Put your clang directory here.
 export KBUILD_BUILD_USER=Cloud # Change with your own name or else.
 export KBUILD_BUILD_HOST=Drone.io # Change with your own hostname.
